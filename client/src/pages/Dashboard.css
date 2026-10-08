@@ -1,0 +1,145 @@
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* ── Header ── */
+.dashboard__header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+
+.dashboard__header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dashboard__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dashboard__brand-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.dashboard__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+}
+
+.dashboard__subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Main content area ── */
+.dashboard__main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+  box-sizing: border-box;
+}
+
+/* ── Loading state ── */
+.dashboard__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+.dashboard__loading p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Simple CSS spinner */
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error state ── */
+.dashboard__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 16px 20px;
+  color: #991b1b;
+}
+
+.dashboard__error-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.dashboard__error strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dashboard__error p {
+  font-size: 13px;
+  margin: 0;
+  color: #b91c1c;
+}
+
+.dashboard__error .btn {
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: center;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dashboard__main {
+    padding: 20px 16px;
+  }
+
+  .dashboard__header {
+    padding: 0 16px;
+  }
+
+  .dashboard__header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 0;
+  }
+}
