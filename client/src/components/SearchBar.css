@@ -1,0 +1,93 @@
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-bar__label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+/* Input wrapper — positions icon, clear button, spinner */
+.search-bar__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar__icon {
+  position: absolute;
+  left: 10px;
+  font-size: 14px;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: 8px 36px 8px 34px; /* space for icon left, clear/spinner right */
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  /* Remove browser default "x" in search inputs */
+  -webkit-appearance: none;
+}
+
+.search-bar__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-bar__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Clear button */
+.search-bar__clear {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+.search-bar__clear:hover {
+  color: var(--text-primary);
+  background: var(--hover-bg);
+}
+
+/* Searching spinner (small inline ring) */
+.search-bar__spinner {
+  position: absolute;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+/* spin keyframes already defined in Dashboard.css — redefine locally
+   to avoid cross-file dependency */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
