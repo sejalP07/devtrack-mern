@@ -131,8 +131,8 @@ const updateTask = async (req, res, next) => {
       id,
       req.body,
       {
-        new: true,          // return the updated document
-        runValidators: true, // enforce schema rules on update
+        returnDocument: 'after', // return the updated document (replaces deprecated `new: true`)
+        runValidators: true,     // enforce schema rules on update
       }
     );
 
