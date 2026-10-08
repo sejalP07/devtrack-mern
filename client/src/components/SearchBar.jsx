@@ -58,21 +58,20 @@ function SearchBar({ value, onSearchChange, isSearching, debounceMs = 400 }) {
           aria-label="Search tasks by title or description"
         />
 
-        {/* Clear button — only shown when there is text */}
-        {inputValue && (
-          <button
-            className="search-bar__clear"
-            onClick={handleClear}
-            aria-label="Clear search"
-            type="button"
-          >
-            ✕
-          </button>
-        )}
-
-        {/* Subtle searching indicator */}
-        {isSearching && (
+        {/* Show spinner OR clear — never both at right edge */}
+        {isSearching ? (
           <span className="search-bar__spinner" aria-label="Searching…" />
+        ) : (
+          inputValue && (
+            <button
+              className="search-bar__clear"
+              onClick={handleClear}
+              aria-label="Clear search"
+              type="button"
+            >
+              ✕
+            </button>
+          )
         )}
       </div>
     </div>

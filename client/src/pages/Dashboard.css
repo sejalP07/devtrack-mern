@@ -46,6 +46,7 @@
   color: var(--text-muted);
   margin: 0;
   flex: 1; /* pushes New Task button to right */
+  min-width: 0; /* allow shrinking on mobile */
 }
 
 .dashboard__new-btn {
@@ -59,21 +60,10 @@
   background: var(--header-bg);
   border-bottom: 1px solid var(--border);
   padding: 0 24px;
-}
-
-.stats-bar > * {
-  /* inner uses flex; this acts as wrapper */
-}
-
-/* Reuse header-inner max-width pattern */
-.stats-bar {
   display: flex;
   justify-content: center;
-}
-
-.stats-bar::before,
-.stats-bar::after {
-  content: '';
+  overflow-x: auto; /* allow horizontal scroll on very narrow screens without breaking layout */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* stat items */

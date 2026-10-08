@@ -32,7 +32,7 @@ const formatDate = (isoString) =>
  *   onDelete - called with the task _id when Delete is clicked
  */
 function TaskCard({ task, onEdit, onDelete }) {
-  const { _id, title, description, status, priority, category, createdAt } = task;
+  const { title, description, status, priority, category, createdAt } = task;
 
   return (
     <article className="task-card" aria-label={`Task: ${title}`}>

@@ -38,6 +38,7 @@
   font-family: inherit;
   color: var(--text-primary);
   background: var(--card-bg);
+  box-sizing: border-box;
   transition: border-color 0.15s, box-shadow 0.15s;
   /* Remove browser default "x" in search inputs */
   -webkit-appearance: none;

@@ -83,8 +83,8 @@ function Dashboard() {
       const result = await getTasks(params);
       setTasks(result.data);
     } catch (err) {
+      // Non-fatal: keep existing task list, log for debugging
       console.error('Failed to fetch tasks:', err);
-      setError('Unable to load tasks. Please make sure the backend server is running.');
     } finally {
       setIsSearching(false);
     }

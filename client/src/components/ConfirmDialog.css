@@ -78,6 +78,11 @@
   background: #b91c1c;
   border-color: #b91c1c;
 }
+.btn--delete:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
+}
 .btn--delete:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -87,4 +92,20 @@
 .btn--ghost:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* ── Mobile: keep dialog within screen bounds ── */
+@media (max-width: 480px) {
+  .dialog {
+    padding: 24px 20px 20px;
+    border-radius: 8px;
+  }
+
+  .dialog__actions {
+    flex-direction: column-reverse;
+  }
+
+  .dialog__actions .btn {
+    width: 100%;
+  }
 }

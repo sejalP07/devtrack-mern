@@ -6,18 +6,37 @@
   --text-muted:     #6b7280;
 
   /* Backgrounds */
-  --bg:          #f9fafb;
-  --card-bg:     #ffffff;
-  --header-bg:   #ffffff;
-  --hover-bg:    #f3f4f6;
+  --bg:        #f9fafb;
+  --card-bg:   #ffffff;
+  --header-bg: #ffffff;
+  --hover-bg:  #f3f4f6;
 
   /* Borders & accents */
-  --border:  #e5e7eb;
-  --accent:  #4f46e5;
+  --border: #e5e7eb;
+  --accent: #4f46e5;
 
   /* Badges */
   --badge-category-bg:    #f3f4f6;
   --badge-category-color: #374151;
+
+  /* Status badge colours (light mode) */
+  --badge-todo-bg:       #e8f4fd;
+  --badge-todo-color:    #1a6fa8;
+  --badge-progress-bg:   #fff3cd;
+  --badge-progress-color:#856404;
+  --badge-done-bg:       #d1fae5;
+  --badge-done-color:    #065f46;
+
+  /* Priority badge colours (light mode) */
+  --badge-low-bg:       #f0fdf4;
+  --badge-low-color:    #15803d;
+  --badge-low-border:   #bbf7d0;
+  --badge-medium-bg:    #fefce8;
+  --badge-medium-color: #a16207;
+  --badge-medium-border:#fde68a;
+  --badge-high-bg:      #fef2f2;
+  --badge-high-color:   #b91c1c;
+  --badge-high-border:  #fecaca;
 
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -28,7 +47,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark mode */
+/* ── Dark mode ── */
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary:   #f9fafb;
@@ -45,6 +64,25 @@
 
     --badge-category-bg:    #374151;
     --badge-category-color: #d1d5db;
+
+    /* Status badges — slightly muted for dark backgrounds */
+    --badge-todo-bg:       #1e3a5f;
+    --badge-todo-color:    #93c5fd;
+    --badge-progress-bg:   #3b2f0a;
+    --badge-progress-color:#fbbf24;
+    --badge-done-bg:       #052e16;
+    --badge-done-color:    #6ee7b7;
+
+    /* Priority badges */
+    --badge-low-bg:       #052e16;
+    --badge-low-color:    #6ee7b7;
+    --badge-low-border:   #065f46;
+    --badge-medium-bg:    #3b2f0a;
+    --badge-medium-color: #fbbf24;
+    --badge-medium-border:#92400e;
+    --badge-high-bg:      #450a0a;
+    --badge-high-color:   #fca5a5;
+    --badge-high-border:  #7f1d1d;
   }
 }
 
@@ -61,7 +99,6 @@ body {
 }
 
 #root {
-  /* Let Dashboard control its own layout */
   width: 100%;
   min-height: 100vh;
 }
@@ -78,4 +115,16 @@ p {
 
 button {
   font-family: inherit;
+}
+
+/* ── Global focus ring ── */
+/* Applied to all interactive elements for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Suppress outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
 }

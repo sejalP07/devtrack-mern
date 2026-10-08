@@ -41,6 +41,9 @@
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.4;
+  /* Long titles wrap cleanly */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* ── Description ── */
@@ -49,6 +52,8 @@
   font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.5;
+  overflow-wrap: break-word;
+  word-break: break-word;
   /* Clamp long descriptions to 3 lines */
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -80,35 +85,35 @@
   white-space: nowrap;
 }
 
-/* Status badges */
+/* Status badges — use CSS variables so dark mode works */
 .badge--status.status--todo {
-  background: #e8f4fd;
-  color: #1a6fa8;
+  background: var(--badge-todo-bg);
+  color: var(--badge-todo-color);
 }
 .badge--status.status--in-progress {
-  background: #fff3cd;
-  color: #856404;
+  background: var(--badge-progress-bg);
+  color: var(--badge-progress-color);
 }
 .badge--status.status--done {
-  background: #d1fae5;
-  color: #065f46;
+  background: var(--badge-done-bg);
+  color: var(--badge-done-color);
 }
 
 /* Priority badges */
 .badge--priority.priority--low {
-  background: #f0fdf4;
-  color: #15803d;
-  border: 1px solid #bbf7d0;
+  background: var(--badge-low-bg);
+  color: var(--badge-low-color);
+  border: 1px solid var(--badge-low-border);
 }
 .badge--priority.priority--medium {
-  background: #fefce8;
-  color: #a16207;
-  border: 1px solid #fde68a;
+  background: var(--badge-medium-bg);
+  color: var(--badge-medium-color);
+  border: 1px solid var(--badge-medium-border);
 }
 .badge--priority.priority--high {
-  background: #fef2f2;
-  color: #b91c1c;
-  border: 1px solid #fecaca;
+  background: var(--badge-high-bg);
+  color: var(--badge-high-color);
+  border: 1px solid var(--badge-high-border);
 }
 
 /* Category badge */
@@ -121,7 +126,7 @@
   letter-spacing: 0;
 }
 
-/* ── Buttons ── */
+/* ── Shared button styles (used across all components) ── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -132,8 +137,13 @@
   font-size: 13px;
   font-weight: 500;
   padding: 5px 12px;
-  transition: background 0.15s ease, opacity 0.15s ease;
+  transition: background 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
   white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .btn--sm {
@@ -146,16 +156,35 @@
   color: var(--text-secondary);
   border: 1px solid var(--border);
 }
-.btn--ghost:hover {
+.btn--ghost:hover:not(:disabled) {
   background: var(--hover-bg);
   color: var(--text-primary);
+}
+.btn--ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .btn--danger {
   background: transparent;
   color: #dc2626;
-  border: 1px solid #fecaca;
+  border: 1px solid var(--badge-high-border);
 }
-.btn--danger:hover {
-  background: #fef2f2;
+.btn--danger:hover:not(:disabled) {
+  background: var(--badge-high-bg);
+}
+.btn--danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Mobile: keep actions from wrapping awkwardly ── */
+@media (max-width: 400px) {
+  .task-card__header {
+    flex-direction: column;
+  }
+  .task-card__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }

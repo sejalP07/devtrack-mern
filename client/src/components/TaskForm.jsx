@@ -120,6 +120,8 @@ function TaskForm({ initialValues, onSubmit, onCancel, isOpen }) {
 
   const descCount = values.description.length;
   const descOver  = descCount > 500;
+  const titleCount = values.title.length;
+  const titleOver  = titleCount > 100;
 
   return (
     <div className="task-form-overlay" role="presentation">
@@ -157,6 +159,9 @@ function TaskForm({ initialValues, onSubmit, onCancel, isOpen }) {
           <div className={`form-group ${errors.title ? 'form-group--error' : ''}`}>
             <label className="form-label" htmlFor="title">
               Title <span className="form-required" aria-hidden="true">*</span>
+              <span className={`form-char-count ${titleOver ? 'form-char-count--over' : ''}`}>
+                {titleCount}/100
+              </span>
             </label>
             <input
               id="title"

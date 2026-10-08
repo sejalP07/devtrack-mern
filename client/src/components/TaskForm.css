@@ -80,7 +80,7 @@
 }
 
 /* ── Form body ── */
-form {
+.task-form-panel form {
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -96,9 +96,9 @@ form {
 }
 
 .form-group--error .form-input,
-.form-group--error .form-textarea {
+.form-group--error .form-textarea,
+.form-group--error .form-select {
   border-color: #f87171;
-  outline-color: #f87171;
 }
 
 .form-label {
@@ -137,6 +137,7 @@ form {
   color: var(--text-primary);
   background: var(--bg);
   width: 100%;
+  box-sizing: border-box; /* prevents padding from causing overflow on narrow screens */
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
@@ -199,6 +200,11 @@ form {
 }
 .btn--primary:hover:not(:disabled) {
   opacity: 0.88;
+}
+.btn--primary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
 }
 .btn--primary:disabled {
   opacity: 0.55;
