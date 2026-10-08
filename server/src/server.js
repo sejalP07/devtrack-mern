@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/errorHandler');
+const taskRoutes = require('./routes/taskRoutes');
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.get('/api/health', (req, res) => {
     message: 'DevTrack API is running',
   });
 });
+
+// ── API routes ────────────────────────────────────────────────────────────────
+app.use('/api/tasks', taskRoutes);
 
 // ── Global error handler (must come after all routes) ────────────────────────
 app.use(errorHandler);
