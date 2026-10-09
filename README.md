@@ -1,6 +1,6 @@
 # DevTrack — Developer Task Management System
 
-## 1. Project Name and Description
+## 1. Description
 
 **DevTrack** is a full-stack Developer Task Management System built using the MERN stack (MongoDB, Express.js, React.js, and Node.js).
 
